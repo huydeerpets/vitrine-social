@@ -1,72 +1,48 @@
-Vitrine Social [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5d73b7a4fb1b4118a8cb900e1ea91c49)](https://www.codacy.com/app/lucassabreu/vitrine-social?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Coderockr/vitrine-social&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.org/Coderockr/vitrine-social.svg?branch=master)](https://travis-ci.org/Coderockr/vitrine-social) [![codecov](https://codecov.io/gh/Coderockr/vitrine-social/branch/master/graph/badge.svg)](https://codecov.io/gh/Coderockr/vitrine-social)
-===============
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/Coderockr/vitrine-social.svg?columns=all)](https://waffle.io/Coderockr/vitrine-social)
+Issues and Progress
+The control of the tasks and the progress of the tasks are being done in the Waffle. Click here to follow: https://waffle.io/Coderockr/vitrine-social
 
-## Issues e Progresso
+Installation Backend (Go)
+We are using Go Modules in this project, so the project folder needs to be outside of yours GOPATH, or you will have to add the ENV GO111MODULElike onin your environment for the project to work inside GOPATH.
 
-O controle das tarefas e do progresso das mesmas estão sendo feitas no Waffle. Clique aqui para acompanhar: https://waffle.io/Coderockr/vitrine-social
+We recommend keeping the project out of yours GOPATH, so goit will not generate an unneeded module at the root of the project, or affect other projects goin your environment that you are not yet using Go Modules.
 
-## Instalação Backend (Go)
+Summary of the opera, to start work just run the following commands:
 
-Estamos utilizando [Go Modules](https://github.com/golang/go/wiki/Modules) nesse projeto, por isso a pasta do projeto precisa ficar fora do seu `GOPATH`, ou terá que adicionar a ENV `GO111MODULE` como `on` em seu ambiente para que o projeto funcione dentro do `GOPATH`.
+git clone git@github.com: Coderockr / vitrine-social.git / not / your / go / path / vitrine-social ;
 
-Recomendamos manter o projeto fora do seu `GOPATH`, assim o `go` não vai gerar um módulo sem necessidade na raiz do projeto, ou afetar outros projetos `go` em seu ambiente que ainda não estejam utilizando `Go Modules`.
+make setup # run the first time to install all dependencies and tools
 
-Resumo da ópera, para começar a trabalhar basta rodar os seguintes comandos:
+make migrations # this may fail because of postgres warmup
 
-```sh
-git clone git@github.com:Coderockr/vitrine-social.git /not/your/go/path/vitrine-social;
+make serve # is now running :)
+Local Domains and Subdomains
+Including the following domains in your /etc/hostsshould expedite the setup of your project:
 
-make setup # executar na primeira vez para instalar todas as dependencias e ferramentas
-
-make migrations # isso pode falhar por causa do warmup do postgres
-
-make serve # agora esta rodando :)
-```
-
-### Domínios e Subdomínios locais
-
-Incluir os seguintes domínios no seu `/etc/hosts` deve agilizar o setup do seu projeto:
-
-```sh
-127.0.0.1 api.vitrinesocial.test # usar porta 8000 (golang)
-127.0.0.1 images.vitrinesocial.test # usar porta 7000 (images-server)
-127.0.0.1 minio.vitrinesocial.test # usar porta 9000 (minio)
-127.0.0.1 vitrinesocial.test # usar porta 3000 (frontend)
-```
-
-## Instalação Frontend (React)
-
-```sh
+127.0.0.1 api.vitrinesocial.test # use port 8000 (golang) 
+127.0.0.1 images.vitrinesocial.test # use port 7000 (images-server) 
+127.0.0.1 minio.vitrinesocial.test # use port 9000 (minio) 
+127.0.0.1 vitrinesocial.test # use port 3000 (frontend)
+Installation Frontend (React)
 cd frontend
 
 yarn
 
 yarn start
-```
+Reicons
+Move icons to assets / icons
 
-### Reicons
-
-Mover ícones para assets/icons
-
-```sh
 yarn reicons
-```
+Auxiliary Commands (day-to-day)
+We are keeping all the helper commands (create migration, run migrations, regenerate docs, etc) within Makefilethe project root.
 
-## Comandos Auxiliares (dia-a-dia)
+To see what commands are available, run: make helpand all will be listed.
 
-Estamos mantendo todos os comandos auxiliares (criar migration, rodar migrations, regerar docs, etc) dentro do `Makefile` na raiz do projeto.
-
-Para ver quais são os comandos disponívels execute: `make help` e todos serão listados.
-
-## Documentação API
-
-Para acessar a versão mais recente da definição acesse:
+API Documentation
+To access the latest version of the definition go to:
 
 http://coderockr.com/vitrine-social/
 
-> [Como atualizar a documentação?](./CONTRIBUTING.md#atualize-a-documentação)
+How to update the documentation?
 
-## [Contribuindo](./CONTRIBUTING.md)
-
-Leia o nosso [CONTRIBUTING.md](./CONTRIBUTING.md) para aprender sobre o nosso processo de desenvolvimento, como propor bugfixes e melhorias, e como encontrar issues para atuar.
+Contributing
+Read our CONTRIBUTING.md to learn about our development process, how to propose bugfixes and improvements, and how to find issues to act on.
